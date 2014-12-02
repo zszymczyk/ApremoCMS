@@ -1,5 +1,7 @@
 <?php namespace controllers;
-use core\view;
+use core\view,
+	\helpers\session,
+	\helpers\url;
 
 /*
  * Welcome controller
@@ -15,6 +17,10 @@ class Welcome extends \core\controller{
 	 */
 	public function __construct(){
 		parent::__construct();
+		
+		if(!Session::get('loggedin')){
+			Url::redirect('login');
+		}
 
 		$this->language->load('welcome');
 	}

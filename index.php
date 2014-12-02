@@ -65,6 +65,8 @@ use \core\router,
 
 //define routes
 Router::any('', '\controllers\welcome@index');
+Router::any('login', '\controllers\auth@login');
+Router::any('logout', '\controllers\auth@logout');
 
 //if no route found
 Router::error('\core\error@index');
